@@ -20,10 +20,10 @@ def save_text_to_file(text, output_file):
     except Exception as e:
         print(f"Failed to write to {output_file}: {e}")
 
-input_directory = './documents/'  # Asigură-te că ai creat acest director și ai pus fișierele docx acolo
+input_directory = './documents/'  
 output_file = 'train_data.txt'
 
-# Asigură-te că fișierul de ieșire este gol la început
+
 try:
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write("")
@@ -34,10 +34,10 @@ except Exception as e:
 for filename in os.listdir(input_directory):
     if filename.endswith('.docx'):
         file_path = os.path.join(input_directory, filename)
-        print(f"Processing file: {file_path}")  # Mesaj de debug
+        print(f"Processing file: {file_path}")  
         text = read_docx(file_path)
-        if text.strip():  # Verifică dacă textul nu este gol
-            print(f"Extracted text from {filename}: {text[:100]}...")  # Afișează primele 100 de caractere
+        if text.strip():  
+            print(f"Extracted text from {filename}: {text[:100]}...")  
             save_text_to_file(text, output_file)
         else:
             print(f"No text extracted from {filename}")
